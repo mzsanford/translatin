@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>Translatin' demo</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="css/translatin.css" />
+  <!-- data- stuff does not seem to work right. What am I doing wrong? -->
+  <script src="js/lib/loadrunner.js" data-path="/js/modules"></script>
+  <script type="text/javascript">
+  using('main', function(app) {
+    app.uploadApi("/translations/upload");
+    app.translate($('#source_doc p'));
+  });
+  </script>
+</head>
+<body>
+  <div id="source_doc">
+    <p>This is some text that I would like to translate. The trick is, of course, that I don't want just one small
+      thing translated but a long-form doc. To make matters worse it has real HTML markup within the text. Things like
+      <strong>bold</strong> should be cake. But what about multiple paragraphs?</p>
+
+    <p>Can you handle multiple &lt;p&gt; tags? It seems like you should be able to. Also, you need to make sure
+      you segment sentences in some sane way. Even if they say things like a.k.a. or Dr. Jones. Those extra periods
+      should be a walk in the park.</p>
+  </div>
+</body>
+</html>
